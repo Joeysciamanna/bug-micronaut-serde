@@ -11,7 +11,6 @@ import io.micronaut.serde.annotation.Serdeable;
 import jakarta.inject.Inject;
 
 import java.util.List;
-import java.util.Set;
 
 @Controller
 public class Test {
@@ -27,9 +26,9 @@ public class Test {
 
     @Scheduled(initialDelay = "5s")
     public void test() {
-        Set<ResponseDTO> list = httpClient.toBlocking().retrieve(
-                HttpRequest.POST("http://127.0.0.1:8080/", Set.of(new RequestDTO("request"))),
-                Argument.setOf(ResponseDTO.class)
+        List<ResponseDTO> list = httpClient.toBlocking().retrieve(
+                HttpRequest.POST("http://127.0.0.1:8080/", List.of(new RequestDTO("request"))),
+                Argument.listOf(ResponseDTO.class)
         );
         System.out.println(list.iterator().next());
     }
