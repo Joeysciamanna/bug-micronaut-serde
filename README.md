@@ -1,3 +1,5 @@
+# ClassCastException on HttpClient.retrieve with Micronaut Serde when request and response are of type List
+
 ## Expected behavior
 
 ```
